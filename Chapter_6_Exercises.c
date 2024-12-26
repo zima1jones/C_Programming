@@ -11,6 +11,7 @@ int nickels;
 int pennies;
 int change;
 int next_num;
+int year;
 
 void findDistance() {
     distance1 = 30;
@@ -114,10 +115,21 @@ void findChange () {
 
 }
 
+void leapyear() {
+    year = 2000;
+    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        printf("the year is a leap year!");
+    }
+    else {
+        printf("the year is not a leap year!");
+    }
+}
+
 
 
 int main() {
     //findDistance();
     //findGrades();
-    findChange();
+    //findChange();
+    leapyear();
 }
