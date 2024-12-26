@@ -1,77 +1,48 @@
 #include <stdio.h>
-#include <math.h>
 
-double celsius;
-double fahrenheit;
-double sphere;
-const double PI = 3.141592653589793;
-double r;
-double exponent;
-double height;
-double width;
-double perimeter;
-double miles;
-double kilometers;
-int minutes;
-int hours;
-int total_minutes;
-int new_minutes;
-int new_hours;
-int total_hours;
-int more_total_minutes;
+int distance1;
+int distance2;
+int totalDistance;
+int grade;
 
-void celsius_to_fahrenheit() {
-   celsius = 0;
-   fahrenheit = (celsius * 9.0/5.0) + (32.0);
-   printf("fahrenheit = %fF\n", fahrenheit);
+void findDistance() {
+    distance1 = 30;
+    distance2 = 10;
+
+    totalDistance = ((distance1 + distance2)*(distance1+distance2));
+    printf("the total distance is %d\n", totalDistance);
 }
 
-void sphere_volume() {
-    exponent = 3;
-    r = 3;
-    sphere = (4.0 / 3.0) * PI * pow(r, exponent);
-    printf("sphere volume  = %f\n", sphere);
-}
+void findGrades () {
+    grade = 90;
 
-void rectangle_perimeter() {
-    height = 2;
-    width = 2;
-    perimeter = 2.0 * (height + width);
-    printf("perimeter = %f\n", perimeter);
-}
+    if (grade <= 60) {
+        printf("the grade is %d and you have failed!", grade);
+    }
+//you are on exercise 6-3 find a way to get the dashes and crosses placed here
+    if (grade >= 61 && grade <= 70) {
+        if (grade <= 63) {
+            printf("the grade is %d - and you have failed!", grade);
+        }
+        printf("the grade is %d and you have have a D!", grade);
+    }
+    if (grade >= 71 && grade <= 80) {
+        printf("the grade is %d and you have a C!", grade);
+    }
+    if (grade >= 81 && grade <= 90) {
+        printf("the grade is %d and you have a B!", grade);
+    }
+    if(grade >= 91) {
+        printf("the grade is %d and you have a A!", grade);
+    }
 
-void kilometers_to_miles () {
-    kilometers = 20;
-    miles = (kilometers * 0.6213712);
-    printf("miles = %f\n", miles);
-}
 
-void hours_to_minutes () {
-    printf("hours: ");
-    scanf("%d", &hours);
-    printf("minutes: ");
-    scanf("%d", &minutes);
-
-    total_minutes = (hours * 60) + minutes;
-    printf("total_minutes = %d\n", total_minutes);
-}
-
-void minutes_to_hours () {
-    printf("minutes: ");
-    scanf("%d", &new_minutes);
-    total_hours = (new_minutes / 60);
-    more_total_minutes = (new_minutes % 60);
-    printf("total_hours = %d hour(s) %d minutes", total_hours, more_total_minutes);
 }
 
 
-int main(void) {
-    //celsius_to_fahrenheit();
-    //sphere_volume();
-    //rectangle_perimeter();
-    //kilometers_to_miles();
-    //hours_to_minutes();
-    minutes_to_hours();
-    return 0;
-}
 
+int main() {
+    findDistance();
+    findGrades();
+
+}
