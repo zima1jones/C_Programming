@@ -12,6 +12,12 @@ int pennies;
 int change;
 int next_num;
 int year;
+int employeeHours;
+int wage;
+int weekly_pay;
+int overtime_wage;
+int total_pay;
+int overtime_hours;
 
 void findDistance() {
     distance1 = 30;
@@ -125,11 +131,25 @@ void leapyear() {
     }
 }
 
+void TotalHours () {
+    wage  = 120;
+    employeeHours = 46;
+    if (employeeHours > 40) {
+        overtime_hours = employeeHours  - 40;
+        overtime_wage = overtime_hours * 1.5;
+    }
+
+    weekly_pay = (wage + overtime_wage) * employeeHours;
+
+    printf("the total comp is $%d", weekly_pay);
+}
+
 
 
 int main() {
     //findDistance();
     //findGrades();
     //findChange();
-    leapyear();
+    //leapyear();
+    TotalHours();
 }
