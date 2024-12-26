@@ -4,6 +4,13 @@ int distance1;
 int distance2;
 int totalDistance;
 int grade;
+int total;
+int quarters;
+int dimes;
+int nickels;
+int pennies;
+int change;
+int next_num;
 
 void findDistance() {
     distance1 = 30;
@@ -74,10 +81,43 @@ void findGrades () {
 
 }
 
+void findChange () {
+    change = 98;
+
+
+       if (change >= 25) {
+           quarters = change / 25;
+           change = change - (25*(quarters));
+
+
+           printf("%d Quarters \n", quarters);
+          //printf("%d", change);
+       }
+       if (change >= 10) {
+           dimes = change / 10;
+           change = change - (10* (dimes));
+           printf("%d Dimes \n", dimes);
+
+       }
+
+       if (change >= 5) {
+            nickels = change / 5;
+            change = change - (5*(nickels));
+           printf("%d Nickels \n", nickels);
+        }
+
+       if (change >= 1) {
+            pennies = change / 1;
+            change = change - (1*(pennies));
+           printf("%d Pennies \n", pennies);
+        }
+
+}
+
 
 
 int main() {
-    findDistance();
-    findGrades();
-
+    //findDistance();
+    //findGrades();
+    findChange();
 }
