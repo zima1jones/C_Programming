@@ -89,7 +89,8 @@ void findGrades () {
 }
 
 void findChange () {
-    change = 98;
+    printf("enter the change number: ");
+    scanf("%d", &change);
 
 
        if (change >= 25) {
@@ -122,7 +123,8 @@ void findChange () {
 }
 
 void leapyear() {
-    year = 2000;
+    printf("enter the year that you were born in: ");
+    scanf("%d", &year);
     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
         printf("the year is a leap year!");
     }
@@ -132,8 +134,11 @@ void leapyear() {
 }
 
 void TotalHours () {
-    wage  = 120;
-    employeeHours = 46;
+    printf("enter your wage:");
+    scanf("%d", &wage);
+    printf("enter the employee hours:");
+    scanf("%d", &employeeHours);
+
     if (employeeHours > 40) {
         overtime_hours = employeeHours  - 40;
         overtime_wage = overtime_hours * 1.5;
@@ -149,7 +154,7 @@ void TotalHours () {
 int main() {
     //findDistance();
     //findGrades();
-    //findChange();
+    findChange();
     //leapyear();
-    TotalHours();
+    //TotalHours();
 }
