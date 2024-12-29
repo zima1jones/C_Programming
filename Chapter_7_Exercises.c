@@ -10,6 +10,13 @@ as a metric value. If a symbol isn't recognized the computer returns it back to 
 int user_units;
 int metric_units;
 char user_units_format;
+int year1;
+int month1;
+int day1;
+int year2;
+int month2;
+int day2;
+int counter;
 
 
 
@@ -38,8 +45,35 @@ void unitsConverter () {
   }
 }
 
+void dateMath() {
+  printf("enter a 1st date in YYYY/MM/DD format :");
+  scanf("%d/%d/%d", &year1, &month1, &day1);
+  printf("enter a 2nd date in YYYY/MM/DD format :");
+  scanf("%d/%d/%d", &year2, &month2, &day2);
+
+
+
+  counter = 0;
+
+
+  if (year1 > year2) {
+    counter += 365*(year2 - year1);
+  }
+
+  else {
+    counter += 366*(year2 - year1);
+  }
+
+  printf("the counter is : %d", counter);
+
+
+}
+
+
+
 
 
 int main() {
-  unitsConverter();
+ // unitsConverter();
+  dateMath();
 }
