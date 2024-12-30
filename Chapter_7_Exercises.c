@@ -2,6 +2,7 @@
 // Created by 1 5 on 12/26/24.
 //
 #include <stdio.h>
+#include <stdlib.h>
 
 /* This program is used to convert imperial units into metric units
 The user inputs and number and the imperial unit and the computer outputs the value
@@ -17,6 +18,8 @@ int year2;
 int month2;
 int day2;
 int counter;
+int daymonths30;
+int daymonths31;
 
 
 
@@ -55,16 +58,32 @@ void dateMath() {
 
   counter = 0;
 
+  if (year1 != year2) {
+    counter += abs((year1-year2)*365);
 
-  if (year1 > year2) {
-    counter += 365*(year2 - year1);
+  }
+  else if (month1 != month2) {
+    counter += abs((month1-month2))*30;
+  }
+
+  else if (day1 != day2) {
+    counter += abs((day1-day2));
   }
 
   else {
-    counter += 366*(year2 - year1);
+    printf("this is the same date");
   }
 
-  printf("the counter is : %d", counter);
+
+
+
+
+
+
+
+
+
+  printf("the counter is : %d days", counter);
 
 
 }
