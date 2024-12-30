@@ -18,9 +18,11 @@ int year2;
 int month2;
 int day2;
 int counter;
-int daymonths30;
-int daymonths31;
-
+int referenceyear;
+int year0 = 1970;
+int month0 = 01;
+int day0 = 01;
+int referencedays;
 
 
 void unitsConverter () {
@@ -58,21 +60,30 @@ void dateMath() {
 
   counter = 0;
 
-  if (year1 != year2) {
-    counter += abs((year1-year2)*365);
-
-  }
-  else if (month1 != month2) {
-    counter += abs((month1-month2))*30;
+  if (year1 == year2 && month1 == month2) {
+    counter += abs(day2 - day1);
   }
 
-  else if (day1 != day2) {
-    counter += abs((day1-day2));
+  else if (year1 == year2) {
+    if (month1 == 1 || month2 == 1) {
+      counter += abs(31 - day1);
+      counter += abs(0 + day2);
+
+    }
+    else if (month1 == 2 || month2 == 2) {
+      counter += abs(28 - day1);
+      counter += abs(0 + day2);
+    }
+
+
   }
 
-  else {
-    printf("this is the same date");
-  }
+
+
+
+
+
+
 
 
 
