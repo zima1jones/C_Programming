@@ -185,7 +185,7 @@ void dollarTax () {
 
 //this program prints all prime numbers from 0-100
 //pretty straightforward this one was
-void numbernotPrime() {
+void numberisPrime() {
   nums = 2;
   while (nums <= 100) {
     if (nums % 2 == 0 && nums != 2 ) {
@@ -213,5 +213,5 @@ int main() {
  // unitsConverter();
   //dateMath();
   //dollarTax();
-  numbernotPrime();
+  numberisPrime();
 }
