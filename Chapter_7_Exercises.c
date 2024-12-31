@@ -22,6 +22,7 @@ int counter1;
 int totalDays;
 int numberofDays;
 int currentMonth;
+int years;
 
 void unitsConverter () {
   printf("Enter number of units: ");
@@ -48,6 +49,21 @@ void unitsConverter () {
   }
 }
 
+/***********************************************************
+ *   Ok so this code works it's very odd though this is wh
+ *   at I will say...Only enter dates after Jan 1, 2000
+ *   the format matters too so any date after this date
+ *   in this format:
+ *                      (2000/01/01)
+ *    Also this doesn't count for leap days/years and i
+ *     think that is the reason it is starting to lose      *
+ *   it's accuracy after you move at a larger distance      *
+ *    between years but if you stay within these parameters *
+ *     the program should work fine albeit those issues     *
+ *    not the perfect program but I did spend some time     *
+ *    programming and debugging this                        *
+ *       VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV        *
+ ************************************************************/
 void dateMath() {
   printf("enter a 1st date in YYYY/MM/DD format :");
   scanf("%d/%d/%d", &year1, &month1, &day1);
@@ -59,65 +75,84 @@ void dateMath() {
   counter = 0;
   counter1 = 0;
 
+  //this was the simplest logic if the years and months were the same
   if (year1 == year2 && month1 == month2) {
     counter += abs(day2 - day1);
   }
 
-  else if (year1 == year2 && month2 > month1) {
-    if (month1 == 1 || month2 == 1) {
-      counter += (31 - day1) + (day2);
+  if (year1 < year2) {
+    years = year1;
+    while (years < year2) {
+      counter += 365;
+      ++years;
     }
-    else if (month1 == 2 || month2 == 2) {
-      counter += (28 - day1) + (day2);
+
+    if (year1 < year2 && month2 > month1) {
+      if (month1 == 1 || month2 == 1) {
+        counter += (31 - day1) + (day2);
       }
-    else if (month1 == 3 || month2 == 3) {
-      counter += (31 - day1) + (day2);
+      else if (month1 == 2 || month2 == 2) {
+        counter += (28 - day1) + (day2);
+      }
+      else if (month1 == 3 || month2 == 3) {
+        counter += (31 - day1) + (day2);
+      }
+      else if (month1 == 4 || month2 == 4) {
+        counter += (30 - day1) + (day2);
+      }
+      else if (month1 == 5 || month2 == 5) {
+        counter += (31 - day1) + (day2);
+      }
+      else if (month1 == 6 || month2 == 6) {
+        counter += (30 - day1) + (day2);
+      }
+      else if (month1 == 7 || month2 == 7) {
+        counter += (31 - day1) + (day2);
+      }
+      else if (month1 == 8 || month2 == 8) {
+        counter += (31 - day1) + (day2);
+      }
+      else if (month1 == 9 || month2 == 9) {
+        counter += (30 - day1) + (day2);
+      }
+      else if (month1 == 10 || month2 == 10) {
+        counter += (31 - day1) + (day2);
+      }
+      else if (month1 == 11 || month2 == 11) {
+        counter += (30 - day1) + (day2);
+      }
+      else if (month1 == 12 || month2 == 12) {
+        counter += (31 - day1) + (day2);
+      }
     }
-    else if (month1 == 4 || month2 == 4) {
-      counter += (30 - day1) + (day2);
+    currentMonth = month1 + 1;
+    while (currentMonth < month2) {
+      if (currentMonth == 1 || currentMonth == 3 || currentMonth == 5 || currentMonth == 7 || currentMonth == 8 || currentMonth == 10 || currentMonth == 12) {
+        counter1 += 31;
+        ++currentMonth;
+      }
+      else if (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) {
+        counter1 += 30;
+        ++currentMonth;
+      }
+      else {
+        counter1 += 28;
+        ++currentMonth;
+      }
     }
-    else if (month1 == 5 || month2 == 5) {
-      counter += (31 - day1) + (day2);
-    }
-    else if (month1 == 6 || month2 == 6) {
-      counter += (30 - day1) + (day2);
-    }
-    else if (month1 == 7 || month2 == 7) {
-      counter += (31 - day1) + (day2);
-    }
-    else if (month1 == 8 || month2 == 8) {
-      counter += (31 - day1) + (day2);
-    }
-    else if (month1 == 9 || month2 == 9) {
-      counter += (30 - day1) + (day2);
-    }
-    else if (month1 == 10 || month2 == 10) {
-      counter += (31 - day1) + (day2);
-    }
-    else if (month1 == 11 || month2 == 11) {
-      counter += (30 - day1) + (day2);
-    }
-    else if (month1 == 12 || month2 == 12) {
-      counter += (31 - day1) + (day2);
-    }
+
+
   }
 
-  currentMonth = month1 + 1;
-  while (currentMonth < month2) {
-    if (currentMonth == 1 || currentMonth == 3 || currentMonth == 5 || currentMonth == 7 || currentMonth == 8 || currentMonth == 10 || currentMonth == 12) {
-      counter1 += 31;
-      ++currentMonth;
-    }
-    else if (currentMonth == 4 || currentMonth == 6 || currentMonth == 9 || currentMonth == 11) {
-      counter1 += 30;
-      ++currentMonth;
-    }
-    else {
-       counter1 += 28;
-      ++currentMonth;
-    }
-  }
+  //this is the logic to handle the use cases for the edge months or months that weren't
+  //fully complete
 
+
+  //this does count the months that were fully complete and put them into
+  //a while loop to check for the amount of days for each month
+
+
+  //this combines both the unfinished months and the fininshed months to get the results
 totalDays = counter + counter1;
   printf("the counter is : %d days", totalDays);
 
