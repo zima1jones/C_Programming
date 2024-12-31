@@ -237,7 +237,7 @@ void values() {
     else {
       printf("the number is positive\n");
       ++positives;
-      printf("p3ostives: %d, negatives: %d\n", positives, negatives);
+      printf("postives: %d, negatives: %d\n", positives, negatives);
     }
   }
 
