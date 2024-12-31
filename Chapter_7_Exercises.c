@@ -27,6 +27,9 @@ float dollars;
 float newDollars;
 int nums;
 int num;
+int num1; int num2; int num3; int num4; int num5; int num6;
+int positives;
+int negatives;
 
 void unitsConverter () {
   printf("Enter number of units: ");
@@ -209,9 +212,45 @@ void numberisPrime() {
 
 }
 
+
+//this program keeps a running count of the amount of positives and negatives when given a series of numbers
+//enter one number at a time and it keeps a count
+//probably the fastest i wrote a program and it actually has some functionality
+//plus i did this with 0 help - so I think i'm gettng better
+//also this was the end of chapter 7
+void values() {
+  positives = 0;
+  negatives = 0;
+  while (1) {
+    printf("enter a number: ");
+    scanf("%d", &num1);
+
+    if (num1 == 0) {
+      printf("final postives are: %d, final negatives are: %d\n", positives, negatives);
+      break;
+    }
+    else if (num1 < 0) {
+      printf("the number is negative\n");
+      ++negatives;
+      printf("postives: %d, negatives: %d\n", positives, negatives);
+    }
+    else {
+      printf("the number is positive\n");
+      ++positives;
+      printf("p3ostives: %d, negatives: %d\n", positives, negatives);
+    }
+  }
+
+
+
+
+
+}
+
 int main() {
  // unitsConverter();
   //dateMath();
   //dollarTax();
-  numberisPrime();
+  //numberisPrime();
+  values();
 }
