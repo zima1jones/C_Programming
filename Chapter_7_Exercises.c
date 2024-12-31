@@ -25,7 +25,8 @@ int currentMonth;
 int years;
 float dollars;
 float newDollars;
-
+int nums;
+int num;
 
 void unitsConverter () {
   printf("Enter number of units: ");
@@ -63,7 +64,7 @@ void unitsConverter () {
  *   it's accuracy after you move at a larger distance      *
  *    between years but if you stay within these parameters *
  *     the program should work fine albeit those issues     *
- *    not the perfect program but I did spend some time     *
+ *    not the perfect program, but I did spend some time     *
  *    programming and debugging this                        *
  *       VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV        *
  ************************************************************/
@@ -181,8 +182,36 @@ void dollarTax () {
   printf("the total amount of change is  %.2f", newDollars);
 }
 
+
+//this program prints all prime numbers from 0-100
+//pretty straightforward this one was
+void numbernotPrime() {
+  nums = 2;
+  while (nums <= 100) {
+    if (nums % 2 == 0 && nums != 2 ) {
+      //printf("%d\n", nums);
+    }
+
+    else if (nums % 3 == 0 && nums != 3) {
+      //printf("%d\n", nums);
+    }
+    else if (nums % 5 == 0 && nums != 5) {
+      //printf("%d\n", nums);
+    }
+    else if (nums % 7 == 0 && nums != 7) {
+      //printf("%d\n", nums);
+    }
+    else {
+      printf("%d\n", nums);
+    }
+    ++nums;
+  }
+
+}
+
 int main() {
  // unitsConverter();
   //dateMath();
-  dollarTax();
+  //dollarTax();
+  numbernotPrime();
 }
