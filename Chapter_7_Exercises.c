@@ -23,6 +23,9 @@ int totalDays;
 int numberofDays;
 int currentMonth;
 int years;
+float dollars;
+float newDollars;
+
 
 void unitsConverter () {
   printf("Enter number of units: ");
@@ -158,7 +161,28 @@ totalDays = counter + counter1;
 
 }
 
+//this program enters a given amount and applies an 8% sales tax to the given amount
+//
+//
+//
+void dollarTax () {
+  printf("enter a change amount: ");
+  scanf("%f", &dollars);
+
+
+  if (dollars >= 1) {
+    newDollars = dollars *  1.08;
+  }
+  else {
+    newDollars = dollars;
+  }
+
+
+  printf("the total amount of change is  %.2f", newDollars);
+}
+
 int main() {
  // unitsConverter();
-  dateMath();
+  //dateMath();
+  dollarTax();
 }
