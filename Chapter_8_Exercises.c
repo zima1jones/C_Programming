@@ -6,13 +6,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+int i = 0;
+int j = 0;
 void checkerBoard() {
- for (int i = 0; i < 40; i++) {
-     printf("-");
+ for (i = 0; i <= 5; ++i) {
      if (i % 5 == 0) {
-         printf("+");
+         printf("+\n");
+         for (j = 0; j < 3; ++j) {
+             printf("|\n");
+         }
      }
+     printf("-");
+
+
+
 
 
  }
